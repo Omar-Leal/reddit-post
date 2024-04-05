@@ -47,10 +47,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         //customCell.customImage.image = UIImage(data: postCellData.thumbnailURL)
         
         if let thumbnailURL = postCellData.thumbnailURL {
-            customCell.customImage.image = UIImage(systemName:  "placeholder")
+            customCell.customImage.image = UIImage(systemName:  "person")
                 } else {
                     // Placeholder image if no thumbnail
-                    customCell.customImage.image = UIImage(named: "placeholder")
+                    customCell.customImage.image = UIImage(named: "person")
                 }
         return customCell
     }

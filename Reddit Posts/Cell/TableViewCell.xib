@@ -36,6 +36,8 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyF-wn-bTa">
                         <rect key="frame" x="187" y="83" width="97" height="17"/>
                         <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="D0e-sS-7PK"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="HU7-V4-Ojz"/>
                             <constraint firstAttribute="width" constant="97" id="U2F-fE-0Bg"/>
                             <constraint firstAttribute="height" constant="17" id="hu1-Ll-3ag"/>
                         </constraints>
@@ -46,8 +48,10 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ym-Nz-GWE">
                         <rect key="frame" x="201" y="120" width="72" height="15"/>
                         <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="Jke-Gv-sfn"/>
                             <constraint firstAttribute="width" constant="72" id="Sqt-FL-vYJ"/>
                             <constraint firstAttribute="height" constant="15" id="g3r-JX-TGz"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="iEl-Ew-wiv"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
@@ -60,6 +64,7 @@
                     <constraint firstItem="IB1-Rj-NaV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="RcY-YJ-pWL"/>
                     <constraint firstItem="6ym-Nz-GWE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="120" id="Sko-M2-RIh"/>
                     <constraint firstItem="7oN-Hl-89s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="Z25-4R-3Ux"/>
+                    <constraint firstItem="6ym-Nz-GWE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="120" id="cAA-kE-Kz4"/>
                     <constraint firstItem="IB1-Rj-NaV" firstAttribute="leading" secondItem="7oN-Hl-89s" secondAttribute="trailing" constant="21" id="tCx-aS-CsM"/>
                 </constraints>
             </tableViewCellContentView>
