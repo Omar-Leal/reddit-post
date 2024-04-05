@@ -9,6 +9,13 @@ import UIKit
 
 class PostViewCell: UITableViewCell {
 
+    @IBOutlet weak var customTitle: UILabel!
+    @IBOutlet weak var customImage: UIImageView!
+    static let identifier = "PostViewCell"
+    static func nuib() -> UINib {
+        return UINib(nibName: "PostViewCell", bundle: nil)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

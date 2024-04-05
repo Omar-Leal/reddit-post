@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        postTableView.delegate = self
+        postTableView.dataSource = self
+        postTableView.register(PostViewCell.nuib(), forCellReuseIdentifier: PostViewCell.identifier)
         
         fetchAllRedditPosts { (result, error)  in
             if let alldata = result {
@@ -35,7 +38,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let customCell = tableView.dequeueReusableCell(withIdentifier: PostViewCell.identifier, for: indexPath) as! PostViewCell
+        
+        let postCellData = allRedditPost[indexPath.row]
+        customCell.customTitle.text = postCellData.title
+        customCell.customImage.image = UIImage(systemName: "square.and.pencil.circle")
+        
+      return customCell
     }
     
     
