@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         postTableView.delegate = self
         postTableView.dataSource = self
-        postTableView.register(PostViewCell.nuib(), forCellReuseIdentifier: PostViewCell.identifier)
+        postTableView.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.indentifier)
         
         fetchAllRedditPosts { (result, error)  in
             if let alldata = result {
@@ -38,13 +38,21 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let customCell = tableView.dequeueReusableCell(withIdentifier: PostViewCell.identifier, for: indexPath) as! PostViewCell
+        let customCell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.indentifier, for: indexPath) as! TableViewCell
         
         let postCellData = allRedditPost[indexPath.row]
-        customCell.customTitle.text = postCellData.title
-        customCell.customImage.image = UIImage(systemName: "square.and.pencil.circle")
+        customCell.title.text = postCellData.title
+        customCell.author.text = postCellData.author
+        customCell.comments.text = String(postCellData.num_comments)
+        //customCell.customImage.image = UIImage(data: postCellData.thumbnailURL)
         
-      return customCell
+        if let thumbnailURL = postCellData.thumbnailURL {
+            customCell.customImage.image = UIImage(systemName:  "placeholder")
+                } else {
+                    // Placeholder image if no thumbnail
+                    customCell.customImage.image = UIImage(named: "placeholder")
+                }
+        return customCell
     }
     
     

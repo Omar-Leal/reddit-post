@@ -8,9 +8,12 @@ import Foundation
 import Alamofire
 
 struct RedditPostData: Codable {
-let title: String
-let author: String
-let subreddit: String
+    let title:        String
+    let author:       String
+    let num_comments: Int
+    var thumbnailURL: URL?
+    let subreddit:    String
+//let num_comments: Int
 }
 
 struct EndpointApi {
@@ -39,10 +42,14 @@ func fetchAllRedditPosts(completion: @escaping ([RedditPostData]?, Error?) -> Vo
                     let redditPosts = postDictionary["children"] as? [[String: Any]] {
 
                     let redditPostData: [RedditPostData] = redditPosts.compactMap { post in
-                    guard let postData = post["data"] as? [String: Any] else { return nil }
+                    guard let postData = post["data"] as? [String: Any],
+                          let thumbnailString = postData["thumbnail"] as? String
+                        else { return nil }
                                         return RedditPostData(title: postData["title"] as? String ?? "",
-                                        author: postData["author"] as? String ?? "",
-                                        subreddit: postData["subreddit"] as? String ?? "")
+                                                              author: postData["author"] as? String ?? "",
+                                                               num_comments: postData["num_comments"] as? Int ?? 0,
+                                                              thumbnailURL: URL(string: thumbnailString),
+                                                               subreddit: postData["subreddit"] as? String ?? "")
                 }
                completion(redditPostData, nil)
             } else {

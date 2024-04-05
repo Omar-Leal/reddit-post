@@ -1,5 +1,5 @@
 //
-//  PostViewCell.swift
+//  TableViewCell.swift
 //  Reddit Posts
 //
 //  Created by Omar Leal on 4/5/24.
@@ -7,17 +7,19 @@
 
 import UIKit
 
-class PostViewCell: UITableViewCell {
-
-    @IBOutlet weak var customTitle: UILabel!
-    @IBOutlet weak var customImage: UIImageView!
-    static let identifier = "PostViewCell"
-    static func nuib() -> UINib {
-        return UINib(nibName: "PostViewCell", bundle: nil)
-    }
+class TableViewCell: UITableViewCell {
+    @IBOutlet weak var title: UILabel!
     
+    @IBOutlet weak var comments: UILabel!
+    @IBOutlet weak var author: UILabel!
+    @IBOutlet weak var customImage: UIImageView!
+    static let indentifier = "TableViewCell"
+    static func nib() -> UINib {
+        return UINib(nibName: "TableViewCell", bundle: nil)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         // Initialization code
     }
 
